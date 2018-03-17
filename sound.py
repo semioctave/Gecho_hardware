@@ -10,7 +10,7 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(channel, GPIO.IN)
 
 def subroutine():
-	res = requests.get("http://b4cdb600.ngrok.io/testImage")
+	res = requests.get("http://13a81a18.ngrok.io/testImage")
 	print res.content
 	led(res.content)
 
@@ -18,7 +18,7 @@ def callback(channel):
 	print "Give a clap to invoke"
 	if not GPIO.input(channel):
     
-		result = requests.get("http://49db6b58.ngrok.io/invoke")
+		result = requests.get("http://53a9002e.ngrok.io/invoke")
 		print result.content
 		time.sleep(5)
 		subroutine()

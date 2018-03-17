@@ -1,1 +1,1 @@
-light off
+Temp=21.0 degree celsius and Humidity=51.0%
