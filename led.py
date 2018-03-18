@@ -20,11 +20,8 @@ def led(switch):
 	elif switch == 'temperature':
 		switch = AdafruitDHT.temp()
 	elif switch == 'music':
-		
-		
 		if mixer.music.get_busy() == True:
 			mixer.music.stop()
-			
 		else:
 			mixer.music.play()
 			
