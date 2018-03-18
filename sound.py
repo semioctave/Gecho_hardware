@@ -4,21 +4,30 @@ import RPi.GPIO as GPIO
 import time
 import requests
 import subprocess
+from gtts import gTTS
+from pygame import mixer
 
 #GPIO SETUP
 channel = 17
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(channel, GPIO.IN)
 
+mixer.init()
+tts = gTTS(text="Namastey. Give a clap to invoke Gecho", lang='en')
+tts.save("good.mp3")
+mixer.music.load('./good.mp3')
+mixer.music.play()
+while mixer.music.get_busy() == True:
+	continue
 
 
 def subroutine():
-	res = requests.get("http://9d512ba6.ngrok.io/testImage")
+	res = requests.get("http://e5b95c82.ngrok.io/testImage")
 	print res.content
 	led(res.content)
 
 def my_func():
-	result = requests.get("http://20d2d1ed.ngrok.io/invoke")
+	result = requests.get("http://a7250838.ngrok.io/invoke")
 	print result.content
 	return subroutine
 
